@@ -1,5 +1,6 @@
 //global variables
 var scheduledHours = [];
+var availableHours = {};
 
 // adding clock to currentDay id
   function clock() {
@@ -30,3 +31,33 @@ var scheduledHours = [];
              <i class="far fa-save fa-2x save-icon"></i>
              </div>`);
   }
+
+  //Check the hour of the current day to the hour represented in the HTML data-element to decide it's background color.
+  var m = moment();
+  $.each($(".time-block"), function (index, value) {
+      let dateHour = $(value).attr("data-time");
+      if (Number(dateHour) === m.hour()) {
+          $(this).find("textarea").addClass('present');
+      } else if (Number(dateHour) < m.hour()) {
+          $(this).find("textarea").addClass('past');
+      } else {
+          $(this).find("textarea").addClass('future');
+      }
+  });
+
+//Check for local storage to set value to the object
+if (localStorage.getItem('availableHours')) {
+    availableHours = JSON.parse(localStorage.getItem('availableHours'));
+}else{
+  availableHours = {
+    '9': { time: "9", value: ""},
+    '10':{ time: "10", value: ""},
+    '11':{ time: "11", value: ""},
+    '12':{ time: "12", value: ""},
+    '13':{ time: "13", value: ""},
+    '14':{ time: "14", value: ""},
+    '15':{ time: "15", value: ""},
+    '16':{ time: "16", value: ""},
+    '17':{ time: "17", value: ""}
+  };
+}
