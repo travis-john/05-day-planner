@@ -2,11 +2,9 @@
 var scheduledHours = [];
 var availableHours = {};
 var m = moment();
-var newDay = new Date('00:00');
-var workDayStart = new Date('08:59');
-
-console.log(newDay.getHours());
-console.log(workDayStart.getHours());
+var newDay = moment().hour(0);
+var workDayStart = moment().hour(9);
+var currentTime = m.hour();
 
 // adding clock to currentDay id
 function clock() {
@@ -52,12 +50,13 @@ $.each($('.time-block'), function(index, value) {
   }
 });
 
-// console.log(currentTime);
+console.log(currentTime);
+
+if (currentTime < workDayStart){
+  localStorage.clear();
+}
 
 //Check for local storage to set value to the object and clearing if currentTime is between 12am and 9am
-// if (currentTime >= '12:00:00 am' && currentTime <= '8:59:59 am'){
-//   localStorage.clear();
-// }else
 if (localStorage.getItem('availableHours')) {
   availableHours = JSON.parse(localStorage.getItem('availableHours'));
 } else {
