@@ -40,7 +40,7 @@ Poor time management can result in missed meetings and deadlines or create the a
 
 * Each timeblock contains an input field and save button.
 
-* Clicking a timeblock's "Save" button stores the input text in local storage, allowing the text to persist when the application is refreshed.
+* Clicking a timeblock's 'Save' button stores the input text in local storage, allowing the text to persist when the application is refreshed.
 
 * The current day is displayed at the top of the calendar.
 
