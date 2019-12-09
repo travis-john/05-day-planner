@@ -46,6 +46,7 @@ $.each($('.time-block'), function(index, value) {
     $(this).find('textarea').addClass('present');
   } else if (Number(dateHour) < m.hour()) {
     $(this).find('textarea').addClass('past');
+    $(this).find('textarea').attr('disabled', 'disabled');
   } else {
     $(this).find('textarea').addClass('future');
   }
