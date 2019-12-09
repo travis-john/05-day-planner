@@ -24,9 +24,9 @@ for (var hour = 9; hour < 18; hour++) {
         <!--scheduling column-->
            <div class='col-sm col-md-10 d-flex description'>
               <div class='input-group'>
-                <textarea class="form-control"></textarea>
+                <textarea class="form-control text-area"></textarea>
                 <div class='input-group-append'>
-                  <button class='save-button'>
+                  <button class='save-button d-flex justify-center align-center'>
                     <i class='far fa-save fa-2x save-icon'></i>
                   </button>
                 </div>

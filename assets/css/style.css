@@ -67,19 +67,20 @@ textarea{
   border-bottom-right-radius: 15px;
   background-color: #06AED5;
   color: white;
-  cursor: pointer;
+  display: block;
+  text-align: center;
 }
 .save-button:hover {
   background-color: #03576b;
 }
 
 .save-button i:hover {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   transition: all .3s ease-in-out;
 }
 
-i {
-  margin-left: 0 auto;
-  padding-right: 40px;
-  padding-top: 5px;
-}
+/* i {
+  margin: 0 auto;
+  /* padding-right: 40px;
+  padding-top: 5px; */
+} */
