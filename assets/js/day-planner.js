@@ -21,15 +21,17 @@ for (var hour = 9; hour < 18; hour++) {
              <p class=dayHour>${moment({hour}).format('h  a')}</p>
            </div>
 
-       <!--user input text area-->
-           <div class='col-sm col-md-8 d-flex description'>
-             <textarea class=text-area></textarea>
-           </div>
-
-       <!--save button-->
-           <div class='col-sm col-md-2 save-button'>
-            <i class='far fa-save fa-2x save-icon'></i>
-           </div>`);
+        <!--scheduling column-->
+           <div class='col-sm col-md-10 d-flex description'>
+              <div class='input-group'>
+                <textarea class="form-control"></textarea>
+                <div class='input-group-append'>
+                  <button class='save-button'>
+                    <i class='far fa-save fa-2x save-icon'></i>
+                  </button>
+                </div>
+              </div>
+            </div>`);
 }
 
 //Checking time to determine present, past, or future
