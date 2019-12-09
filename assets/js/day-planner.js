@@ -22,7 +22,7 @@ for (var hour = 9; hour < 18; hour++) {
 
        <!--user input text area-->
            <div class="col-sm col-md-8 d-flex description">
-             <textarea class=textArea></textarea>
+             <textarea class=text-area></textarea>
            </div>
 
        <!--save button-->
@@ -31,7 +31,7 @@ for (var hour = 9; hour < 18; hour++) {
            </div>`);
 }
 
-//Check the hour of the current day to the hour represented in the HTML data-element to decide it's background color.
+//Checking time to determine present, past, or future
 $.each($(".time-block"), function(index, value) {
   let dateHour = $(value).attr("data-time");
   if (Number(dateHour) === m.hour()) {
@@ -89,7 +89,7 @@ if (localStorage.getItem('availableHours')) {
 
 //set value of availableHours to equal the user input for each row
 $(".time-block").each(function() {
-  $(this).find(".textArea").val(availableHours[$(this).attr("data-time")].value);
+  $(this).find(".text-area").val(availableHours[$(this).attr("data-time")].value);
 });
 
 //save value to local storage on click
@@ -97,7 +97,7 @@ $(".save-button").on('click', function(event){
     //set availableHours time attribute
     var timeValue = $(this).closest(".time-block").attr("data-time");
     //set availableHours value attribute
-    var textValue = $(this).closest(".time-block").find(".textArea").val();
+    var textValue = $(this).closest(".time-block").find(".text-area").val();
     availableHours[timeValue].val = textValue;
 
   //save user input in each object to local storage
