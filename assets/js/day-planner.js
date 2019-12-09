@@ -2,7 +2,11 @@
 var scheduledHours = [];
 var availableHours = {};
 var m = moment();
-var currentTime = moment().format('h:mm:ss a');
+var newDay = new Date('00:00');
+var workDayStart = new Date('08:59');
+
+console.log(newDay.getHours());
+console.log(workDayStart.getHours());
 
 // adding clock to currentDay id
 function clock() {
@@ -31,7 +35,8 @@ for (var hour = 9; hour < 18; hour++) {
                   </button>
                 </div>
               </div>
-            </div>`);
+            </div>
+          </div>`);
 }
 
 //Checking time to determine present, past, or future
@@ -46,7 +51,7 @@ $.each($('.time-block'), function(index, value) {
   }
 });
 
-console.log(currentTime);
+// console.log(currentTime);
 
 //Check for local storage to set value to the object and clearing if currentTime is between 12am and 9am
 // if (currentTime >= '12:00:00 am' && currentTime <= '8:59:59 am'){
