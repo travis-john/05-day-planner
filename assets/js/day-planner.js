@@ -22,7 +22,7 @@ for (var hour = 9; hour < 18; hour++) {
   $('.container').append(`<div class='row time-block' data-time='${hour}'>
        <!--hour column-->
            <div class='col-sm col-md-2 hour'>
-             <p class=dayHour>${moment({hour}).format('h  a')}</p>
+             <p>${moment({hour}).format('h  a')}</p>
            </div>
 
         <!--scheduling column-->
@@ -45,8 +45,7 @@ $.each($('.time-block'), function(index, value) {
   if (Number(dateHour) === m.hour()) {
     $(this).find('textarea').addClass('present');
   } else if (Number(dateHour) < m.hour()) {
-    $(this).find('textarea').addClass('past');
-    $(this).find('textarea').attr('disabled', 'disabled');
+    $(this).find('textarea').addClass('past').attr('disabled', 'disabled');
   } else {
     $(this).find('textarea').addClass('future');
   }
