@@ -44,9 +44,10 @@ $.each($('.time-block'), function(index, value) {
   }
 });
 
+console.log(currentTime);
+
 //Check for local storage to set value to the object and clearing if currentTime is between 12am and 9am
 if (currentTime >= '12:00:00 am' && currentTime <= '8:59:59 am'){
-  console.log(currentTime);
   localStorage.clear();
 }else if (localStorage.getItem('availableHours')) {
   availableHours = JSON.parse(localStorage.getItem('availableHours'));
