@@ -4,11 +4,6 @@ var availableHours = {};
 var m = moment();
 var currentTime = moment().format('h:mm:ss a');
 
-//clearing localStorage every morning @12am
-if (currentTime >= '12:00:00 am'){
-  localStorage.clear();
-}
-
 // adding clock to currentDay id
 function clock() {
   var dateString = moment().format('MMMM Do YYYY, h:mm:ss a');
@@ -49,8 +44,10 @@ $.each($('.time-block'), function(index, value) {
   }
 });
 
-//Check for local storage to set value to the object
-if (localStorage.getItem('availableHours')) {
+//Check for local storage to set value to the object and clearing if currentTime is between 12am and 9am
+if (currentTime >= '12:00:00 am' && currentTime <= '8:59:59 am'){
+  localStorage.clear();
+}else if (localStorage.getItem('availableHours')) {
   availableHours = JSON.parse(localStorage.getItem('availableHours'));
 } else {
   availableHours = {
