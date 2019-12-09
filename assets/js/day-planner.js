@@ -5,7 +5,7 @@ var m = moment();
 var currentTime = moment().format('h:mm:ss a');
 
 //clearing localStorage every morning @12am
-if (currentTime = '12:00:00 am'){
+if (currentTime >= '12:00:00 am'){
   localStorage.clear();
 }
 
