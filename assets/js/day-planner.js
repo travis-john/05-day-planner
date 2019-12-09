@@ -27,6 +27,6 @@ var scheduledHours = [];
 
          <!--save button-->
              <div class="col-sm col-md-2 saveBtn">
-             <i class="far fa-save fa-2x" id=icon></i>
+             <i class="far fa-save fa-2x save-icon"></i>
              </div>`);
   }
