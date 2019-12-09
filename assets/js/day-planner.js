@@ -50,11 +50,12 @@ $.each($('.time-block'), function(index, value) {
   }
 });
 
+console.log(workDayStart);
 console.log(currentTime);
 
-if (currentTime < workDayStart){
-  localStorage.clear();
-}
+// if (currentTime < workDayStart){
+//   localStorage.clear();
+// }
 
 //Check for local storage to set value to the object and clearing if currentTime is between 12am and 9am
 if (localStorage.getItem('availableHours')) {
