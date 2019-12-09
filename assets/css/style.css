@@ -70,6 +70,15 @@ textarea{
   display: block;
   text-align: center;
 }
+
 .save-button:hover {
   background-color: #03576b;
+}
+
+.disabled {
+  color: black;
+  background-color: #f0f0f0;
+  border-color: #787878;
+  cursor: not-allowed;
+  pointer-events: none;
 }
