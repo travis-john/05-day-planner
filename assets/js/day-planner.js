@@ -38,17 +38,21 @@ for (var hour = 9; hour < 18; hour++) {
 }
 
 //Checking time to determine present, past, or future
-$.each($('.time-block'), function(index, value) {
-  let dateHour = $(value).attr('data-time');
-  if (Number(dateHour) === m.hour()) {
-    $(this).find('textarea').addClass('present');
-  } else if (Number(dateHour) < m.hour()) {
-    $(this).find('textarea').addClass('past').attr('disabled', 'disabled');
-    $(this).find('.save-button').addClass('disabled').attr('disabled', true);
-  } else {
-    $(this).find('textarea').addClass('future');
-  }
-});
+function checkTime() {
+  $.each($('.time-block'), function(index, value) {
+    let dateHour = $(value).attr('data-time');
+    if (Number(dateHour) === m.hour()) {
+      $(this).find('textarea').addClass('present');
+    } else if (Number(dateHour) < m.hour()) {
+      $(this).find('textarea').addClass('past').attr('disabled', 'disabled');
+      $(this).find('.save-button').addClass('disabled').attr('disabled', true);
+    } else {
+      $(this).find('textarea').addClass('future');
+    }
+  });
+}
+
+setInterval(checkTime, 60*60*1000);
 
 console.log(workDayStart);
 console.log(currentTime);
