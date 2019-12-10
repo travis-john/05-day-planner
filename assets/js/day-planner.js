@@ -38,8 +38,7 @@ for (var hour = 9; hour < 18; hour++) {
 }
 
 //Checking time to determine present, past, or future
-function checkTime() {
-  $.each($('.time-block'), function(index, value) {
+$.each($('.time-block'), function(index, value) {
   let dateHour = $(value).attr('data-time');
    if (Number(dateHour) === m.hour()) {
       $(this).find('textarea').addClass('present');
@@ -49,12 +48,7 @@ function checkTime() {
     } else {
       $(this).find('textarea').addClass('future');
     }
-  });
-}
-
-checkTime();
-
-setInterval(checkTime, 60*60*1000);
+ });
 
 console.log(workDayStart);
 console.log(currentTime);
