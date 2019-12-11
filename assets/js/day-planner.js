@@ -3,7 +3,6 @@ var scheduledHours = [];
 var availableHours = {};
 var m = moment();
 var newDay = moment().hour(0);
-var workDayStart = moment().hour(9);
 var currentTime = m.hour();
 
 // adding clock to currentDay id
@@ -40,22 +39,21 @@ for (var hour = 9; hour < 18; hour++) {
 //Checking time to determine present, past, or future
 $.each($('.time-block'), function(index, value) {
   let dateHour = $(value).attr('data-time');
-   if (Number(dateHour) === m.hour()) {
-      $(this).find('textarea').addClass('present');
-    } else if (Number(dateHour) < m.hour()) {
-      $(this).find('textarea').addClass('past').attr('disabled', 'disabled');
-      $(this).find('.save-button').addClass('disabled').attr('disabled', true);
-    } else {
-      $(this).find('textarea').addClass('future');
-    }
- });
+  if (Number(dateHour) === m.hour()) {
+    $(this).find('textarea').addClass('present');
+  } else if (Number(dateHour) < m.hour()) {
+    $(this).find('textarea').addClass('past').attr('disabled', 'disabled');
+    $(this).find('.save-button').addClass('disabled').attr('disabled', true);
+  } else {
+    $(this).find('textarea').addClass('future');
+  }
+});
 
-console.log(workDayStart);
 console.log(currentTime);
 
-// if (currentTime < workDayStart){
-//   localStorage.clear();
-// }
+if (currentTime >=0 && currentTime < 9){
+  localStorage.clear();
+}
 
 //Check for local storage to set value to the object and clearing if currentTime is between 12am and 9am
 if (localStorage.getItem('availableHours')) {
